@@ -43,9 +43,9 @@ export class StockSelectorComponent {
     products: Product[];
 
     @Output() 
-        added = new EventEmitter<any>();
+    added = new EventEmitter<any>();
 
     onAdd() {
-        this.added.emit(this.parent.get('selector'));
+        this.added.emit(this.parent.get('selector').value);
     }
 }
