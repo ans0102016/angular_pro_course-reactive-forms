@@ -1,0 +1,60 @@
+{
+  "name": "CSD",
+  "version": "0.1.0",
+  "description": "Custom Structural Directive",
+  "repository": {
+    "url": "git+ssh://git@github.com/ans0102016/angular_pro_course-pipes.git",
+    "type": "git"
+  },
+  "license": "MIT",
+  "author": "Ameet S",
+  "dependencies": {
+    "@angular/common": "7.2.15",
+    "@angular/compiler": "7.2.15",
+    "@angular/core": "7.2.15",
+    "@angular/forms": "7.2.15",
+    "@angular/http": "7.2.15",
+    "@angular/platform-browser": "7.2.15",
+    "@angular/platform-browser-dynamic": "7.2.15",
+    "@angular/router": "7.2.15",
+    "@types/nodemailer": "^6.4.0",
+    "@types/nodemailer-direct-transport": "^1.0.31",
+    "@types/nodemailer-smtp-transport": "^2.7.4",
+    "fibers": "^4.0.2",
+    "nativescript-email": "^1.5.5",
+    "ng-simple-slideshow": "^1.2.9",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "6.5.4",
+    "sass": "^1.24.4",
+    "ts-helpers": "1.1.2",
+    "zone.js": "0.8.26"
+  },
+  "scripts": {
+    "prestart": "webpack --config vendor/webpack.config.js",
+    "build": "webpack --progress --colors --mode production",
+    "start": "webpack-dev-server --mode development"
+  },
+  "devDependencies": {
+    "@types/core-js": "2.5.2",
+    "@types/node": "13.1.6",
+    "angular2-template-loader": "0.6.2",
+    "awesome-typescript-loader": "5.2.1",
+    "chalk": "3.0.0",
+    "core-js": "3.6.2",
+    "json-server": "0.15.1",
+    "node-sass": "^4.13.0",
+    "progress-bar-webpack-plugin": "1.12.1",
+    "raw-loader": "4.0.0",
+    "resolve-url-loader": "3.1.1",
+    "sass-loader": "^8.0.0",
+    "typescript": "3.7.4",
+    "webpack": "4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "3.10.1"
+  },
+  "bugs": {
+    "url": "https://github.com/ans0102016/angular_pro_course-pipes/issues"
+  },
+  "homepage": "https://github.com/ans0102016/angular_pro_course-pipes#readme",
+  "main": "app.js"
+}
