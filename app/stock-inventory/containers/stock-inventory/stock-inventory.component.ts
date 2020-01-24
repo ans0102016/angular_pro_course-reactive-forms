@@ -1,5 +1,5 @@
 import { Component, ComponentFactoryResolver } from '@angular/core';
-import { FormControl, FormGroup, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 import { Product } from '../../models/product.interface';
 
@@ -20,7 +20,8 @@ import { Product } from '../../models/product.interface';
                 </stock-selector>
 
                 <stock-products
-                    [parent] = "form">
+                    [parent] = "form"
+                    (removed)="removeStock($event)">
                 </stock-products>
             </form>
             <div class="stock-inventory__buttons">
@@ -44,28 +45,38 @@ export class StockInventoryComponent {
         { "id": 5, "price": 600, "name": "Apple Watch" },
     ];
 
-    form = new FormGroup({
-        store: new FormGroup({
-            branch: new FormControl('B182'),
-            code: new FormControl('1234')
+    constructor(
+        private fb: FormBuilder
+    ) {}
+
+    form = this.fb.group({
+        store: this.fb.group({
+            branch: '',
+            code: ''
         }),
         selector: this.createStock({}),
-        stock: new FormArray([
+        stock: this.fb.array ([
             this.createStock({product_id: 1, quantity: 10}),
             this.createStock({product_id: 3, quantity: 50})
         ])
     });
 
     createStock(stock) {
-        return new FormGroup({
-            product_id: new FormControl(parseInt(stock.product_id, 10) || 3),
-            quantity: new FormControl(stock.quantity || 10)
+        return this.fb.group({
+            product_id: parseInt(stock.product_id, 10) || '',
+            quantity: stock.quantity || 10
         })
     }
 
     addStock(stock) {
         const control = this.form.get('stock') as FormArray;
         control.push(this.createStock(stock));
+    }
+
+    removeStock({ group, index }: {group: FormGroup, index: number}) {
+        const control = this.form.get('stock') as FormArray;
+        control.removeAt(index);
+
     }
 
     onSubmit() {
