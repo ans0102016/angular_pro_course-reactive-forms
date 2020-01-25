@@ -8,6 +8,8 @@ import { StockBranchComponent } from './components/stock-branch/stock-branch.com
 import { StockProductsComponent } from './components/stock-products/stock-products.component';
 import { StockSelectorComponent } from './components/stock-selector/stock-selector.component';
 
+import { StockCounterComponent } from './components/stock-counter/stock-counter.component';
+
 import { StockInventoryService } from '../stock-inventory/services/stock-inventory.service';
 
 @NgModule({
@@ -15,7 +17,8 @@ import { StockInventoryService } from '../stock-inventory/services/stock-invento
         StockInventoryComponent,
         StockBranchComponent,
         StockProductsComponent,
-        StockSelectorComponent
+        StockSelectorComponent,
+        StockCounterComponent
     ],
     providers: [
         StockInventoryService

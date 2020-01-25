@@ -6,7 +6,59 @@ import { Product } from '../../models/product.interface';
 
 @Component({
     selector: 'stock-selector',
-    styles: ['stock-selector.component.scss'],
+    styles: [`
+        .stock-selector {
+            padding: 0 0 20px;
+            margin: 0 0 20px;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+        
+            &__error {
+            position: absolute;
+            background: #B52D30;
+            color: #fff;
+            font-weight: 500;
+            font-size: 12px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            left: 0;
+            bottom: -10px;
+            line-height: 1;
+            padding: 6px 10px;
+        
+            &:before {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 5px 5px 5px;
+                border-color: transparent transparent #B52D30 transparent;
+                content: ' ';
+                display: block;
+                position: absolute;
+                top: -5px;
+                left: 10px;
+            }
+            }
+        
+            & > div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        
+            select {
+                flex: 1 0;
+            }
+            button {
+                flex: 0 0 100px;
+                margin-left: 30px;
+            }
+            stock-counter {
+                flex: 0 0 50px;
+                margin-left: 30px;
+            }
+            }
+        }
+    `],
     template: `
         <div class="stock-selector" [formGroup]="parent">
             <div formGroupName="selector">
@@ -24,12 +76,16 @@ import { Product } from '../../models/product.interface';
                     min="10"
                     max="1000"
                     formControlName="quantity">
-
-                    <button 
-                        type="button"
-                        (click)="onAdd()">
-                        Add Stock
-                    </button>
+                <stock-counter
+                    [step] = "10"
+                    [min] = "10"
+                    [max] = "1000">
+                </stock-counter>
+                <button 
+                    type="button"
+                    (click)="onAdd()">
+                    Add Stock
+                </button>
             </div>
         </div>
     `

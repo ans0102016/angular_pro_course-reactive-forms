@@ -1,7 +1,7 @@
 {
   "name": "CSD",
   "version": "0.1.0",
-  "description": "Custom Structural Directive",
+  "description": "Reactive Forms",
   "repository": {
     "url": "git+ssh://git@github.com/ans0102016/angular_pro_course-pipes.git",
     "type": "git"

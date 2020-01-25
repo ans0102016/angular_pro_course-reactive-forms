@@ -3,7 +3,29 @@ import { FormGroup, FormArray } from '@angular/forms'
 import { Product } from '../../models/product.interface';
 @Component({
     selector: 'stock-products',
-    styles: ['stock-products.component.scss'],
+    styles: [`
+        .stock-product {
+            &__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: left;
+            margin-bottom: 100px;
+        
+            button {
+                flex: 0 0 100px;
+                margin-left: 30px;
+            }
+            stock-counter {
+                flex: 0 0 100px;
+                margin-left: 30px;
+            }
+            }
+        
+            &__name {
+            flex: 1 0;
+            }
+        }
+    `],
     template: `
         <div class="stock-selector" [formGroup]="parent">
             <div formArrayName="stock">

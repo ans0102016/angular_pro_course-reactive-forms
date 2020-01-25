@@ -9,7 +9,9 @@ import { Product, Item } from '../../models/product.interface';
 
 @Component({
     selector: 'stock-inventory',
-    styles: ['stock-inventory.component.ts'],
+    styles: [`
+        .stock-inventory { }
+    `],
     template: `
         <div class="stock-inventory">
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
